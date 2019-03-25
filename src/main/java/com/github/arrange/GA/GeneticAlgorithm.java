@@ -4,7 +4,7 @@ import com.github.arrange.Const;
 import com.github.arrange.handler.ConflictHandler;
 import com.github.arrange.model.AutoCourseInfo;
 import com.github.arrange.utils.ClassHourUtils;
-import com.github.arrange.utils.CloneTools;
+import com.github.arrange.utils.CloneUtils;
 import com.github.arrange.utils.FitnessFunctionUtils;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
@@ -129,8 +129,8 @@ public class GeneticAlgorithm {
         List<ConcurrentHashMap<String, ConcurrentHashMap<String, Vector<String>>>> offsprings = new ArrayList<>();
 
         //复制这两个个体为子个体
-        ConcurrentHashMap<String, ConcurrentHashMap<String, Vector<String>>> offspringIndividual_1 =  CloneTools.clone(parentIndividual_1);
-        ConcurrentHashMap<String, ConcurrentHashMap<String, Vector<String>>> offspringIndividual_2 =  CloneTools.clone(parentIndividual_2);
+        ConcurrentHashMap<String, ConcurrentHashMap<String, Vector<String>>> offspringIndividual_1 =  CloneUtils.clone(parentIndividual_1);
+        ConcurrentHashMap<String, ConcurrentHashMap<String, Vector<String>>> offspringIndividual_2 =  CloneUtils.clone(parentIndividual_2);
 
         Random random = new Random();
 

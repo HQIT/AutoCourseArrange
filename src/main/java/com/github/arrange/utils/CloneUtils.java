@@ -2,7 +2,7 @@ package com.github.arrange.utils;
 
 import java.io.*;
 
-public class CloneTools {
+public class CloneUtils {
     /**
      * 实现对象的深复制
      * @param obj
