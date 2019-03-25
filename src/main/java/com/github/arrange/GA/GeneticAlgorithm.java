@@ -68,11 +68,12 @@ public class GeneticAlgorithm {
             Vector<AutoCourseInfo> courseInfos,
             ConcurrentHashMap<String, ConcurrentHashMap<String, String>> teacherOccupyHourAndCampus,
             ConcurrentHashMap<String, Vector<String>> classroomOccupyHour,
-            ConcurrentHashMap<String, Vector<String>> classCanArrangeHours) {
+            ConcurrentHashMap<String, Vector<String>> classCanArrangeHours,
+            int populationSize) {
 
         Vector<ConcurrentHashMap<String, ConcurrentHashMap<String, Vector<String>>>> population = new Vector<>(); //用于记录初始种群
 
-        for (int psize = 0; psize < Const.population_size; psize++) {
+        for (int psize = 0; psize < populationSize; psize++) {
             ConcurrentHashMap<String, ConcurrentHashMap<String, Vector<String>>> individual =
                     generateInitialIndividual(courseInfos, teacherOccupyHourAndCampus, classroomOccupyHour, classCanArrangeHours);
 

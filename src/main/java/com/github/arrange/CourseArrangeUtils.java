@@ -4,10 +4,6 @@ import com.github.arrange.GA.GeneticAlgorithm;
 import com.github.arrange.model.AutoCourseInfo;
 import com.github.arrange.utils.CloneUtils;
 import com.github.arrange.utils.FitnessFunctionUtils;
-import org.apache.poi.hssf.usermodel.HSSFRow;
-import org.apache.poi.hssf.usermodel.HSSFSheet;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
@@ -31,6 +27,8 @@ public final class CourseArrangeUtils {
      * @param teacherMaxContinuousClassHour
      * @param teacherTrainsCampusNeedInterval 教师跨校区上课中间需要隔开的节数
      * @param subjectNextNotArrangeSubjects
+     * @param populationSize 种群规模
+     * @param generationSize 遗传代数
      * @return
      */
     public static ConcurrentHashMap<String, ConcurrentHashMap<String, Vector<String>>> autoArrange(
@@ -44,14 +42,16 @@ public final class CourseArrangeUtils {
             ConcurrentHashMap<String, Vector<String>> teacherMutex,
             ConcurrentHashMap<String, Integer> teacherMaxContinuousClassHour,
             int teacherTrainsCampusNeedInterval,
-            ConcurrentHashMap<String, Vector<String>> subjectNextNotArrangeSubjects
+            ConcurrentHashMap<String, Vector<String>> subjectNextNotArrangeSubjects,
+            int populationSize,
+            int generationSize
     ) {
         //产生初始种群
         List<ConcurrentHashMap<String, ConcurrentHashMap<String, Vector<String>>>> population =
-                GeneticAlgorithm.generateInitialPopulationRandom(courseInfos, teacherOccupyHourAndCampus, classroomOccupyHour, classCanArrangeHours);
+                GeneticAlgorithm.generateInitialPopulationRandom(courseInfos, teacherOccupyHourAndCampus, classroomOccupyHour, classCanArrangeHours, populationSize);
 
         //遗传i代
-        for (int i = 0; i < Const.generation_size; i++ ) {
+        for (int i = 0; i < generationSize; i++ ) {
             Vector<ConcurrentHashMap<String, ConcurrentHashMap<String, Vector<String>>>> offspringPopulation = new Vector(); //记录下一代种群
 
             ConcurrentHashMap<ConcurrentHashMap<String, ConcurrentHashMap<String, Vector<String>>>, Double> individualFitnessMap = new ConcurrentHashMap<>();
@@ -94,7 +94,7 @@ public final class CourseArrangeUtils {
 
             //预处理，选出交叉的双亲组合
             Vector<Vector<ConcurrentHashMap<String, ConcurrentHashMap<String, Vector<String>>>>> crossedParents = new Vector<>();
-            int time = population.size() / 2; //次数,每次选择两个个体
+            int time = populationSize / 2; //次数,每次选择两个个体
             for (int j = 0; j < time; j++) {
                 Vector<ConcurrentHashMap<String, ConcurrentHashMap<String, Vector<String>>>> couple = new Vector<>();
 
