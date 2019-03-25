@@ -1,0 +1,16 @@
+com\github\arrange\model\AutoCourseInfo.class
+com\github\arrange\temporary\StringUtils.class
+com\github\arrange\utils\FitnessFunctionUtils.class
+com\github\arrange\utils\ExportUtils.class
+com\github\arrange\CourseArrangeUtils.class
+com\github\arrange\Const.class
+com\github\arrange\temporary\PriorityTools.class
+com\github\arrange\temporary\RuleTools.class
+com\github\arrange\utils\CloneTools.class
+com\github\arrange\utils\ClassHourUtils.class
+com\github\arrange\temporary\CourseInfoTools.class
+com\github\arrange\GA\GeneticAlgorithm.class
+com\github\arrange\handler\ConflictHandler.class
+com\github\arrange\temporary\ClassHourTools.class
+com\github\arrange\Temporary.class
+com\github\arrange\temporary\WholeOccupy.class
