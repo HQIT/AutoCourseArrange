@@ -125,7 +125,8 @@ public class GeneticAlgorithm {
      */
     public static List<ConcurrentHashMap<String, ConcurrentHashMap<String, Vector<String>>>> crossover(
             ConcurrentHashMap<String, ConcurrentHashMap<String, Vector<String>>> parentIndividual_1,
-            ConcurrentHashMap<String, ConcurrentHashMap<String, Vector<String>>> parentIndividual_2) {
+            ConcurrentHashMap<String, ConcurrentHashMap<String, Vector<String>>> parentIndividual_2,
+            ConcurrentHashMap<String, AutoCourseInfo> courseInfoMap) {
 
         List<ConcurrentHashMap<String, ConcurrentHashMap<String, Vector<String>>>> offsprings = new ArrayList<>();
 
@@ -138,10 +139,25 @@ public class GeneticAlgorithm {
         List<String> classIDs = new ArrayList<>(offspringIndividual_1.keySet());
         //随机选择一个班级
         String classID = classIDs.get(random.nextInt(classIDs.size()));
-        String gradeName = classID.substring(0, 2);
+
+        //获取当前班级的年级学段
+        List<String> currentClassCourseInfos = new ArrayList<>(parentIndividual_1.get(classID).keySet());
+        AutoCourseInfo autoCourseInfo = courseInfoMap.get(currentClassCourseInfos.get(0));
+        String gradeAndStage = autoCourseInfo.getGradeAndStage();
+
+        //获取当前年级学段的所有班级ID
+        List<String> crossedClassIDs = new ArrayList<>();
+        classIDs.stream().forEach(oneClassID -> {
+            List<String> courseInfos = new ArrayList<>(parentIndividual_1.get(classID).keySet());
+            AutoCourseInfo autoCourseInfoTemp = courseInfoMap.get(currentClassCourseInfos.get(0));
+
+            if (gradeAndStage.equals(autoCourseInfoTemp.getGradeAndStage())) {
+                crossedClassIDs.add(oneClassID);
+            }
+        });
 
         offspringIndividual_1.entrySet().stream().forEach(oneClassArrange -> {
-            if (oneClassArrange.getKey().contains(gradeName)) {
+            if (crossedClassIDs.contains(oneClassArrange.getKey())) {
                 ConcurrentHashMap<String, Vector<String>> temp = offspringIndividual_1.get(oneClassArrange.getKey());
                 offspringIndividual_1.put(oneClassArrange.getKey(), offspringIndividual_2.get(oneClassArrange.getKey()));
                 offspringIndividual_2.put(oneClassArrange.getKey(), temp);
@@ -282,7 +298,7 @@ public class GeneticAlgorithm {
     public static double getFitness(
             ConcurrentHashMap<String, ConcurrentHashMap<String, Vector<String>>> individual,
             ConcurrentHashMap<String, AutoCourseInfo> courseInfoMap,
-            ConcurrentHashMap<String, Vector<String>> subjectPriorityArrangeHour,
+            ConcurrentHashMap<String, ConcurrentHashMap<String, Vector<String>>> gradeStageSubjectPriorityArrangeHour,
             ConcurrentHashMap<String, Vector<String>> intervalMaxLesson,
             ConcurrentHashMap<String, Vector<String>> teacherMutex,
             ConcurrentHashMap<String, Integer> teacherMaxContinuousClassHour,
@@ -293,7 +309,7 @@ public class GeneticAlgorithm {
         int hard_violations = getHardConstraintsConflictTimes(individual, courseInfoMap, teacherMutex);
         int soft_violations = getUserdefinedConstraintsConclictTimes(individual, courseInfoMap, intervalMaxLesson, teacherMaxContinuousClassHour, teacherTrainsCampusNeedInterval, subjectNextNotArrangeSubjects);
 
-        double f1 = FitnessFunctionUtils.f1(individual, subjectPriorityArrangeHour, courseInfoMap); //课表节次优度
+        double f1 = FitnessFunctionUtils.f1(individual, gradeStageSubjectPriorityArrangeHour, courseInfoMap); //课表节次优度
         double f2 = FitnessFunctionUtils.f2(individual); //课表均匀度
         //double f3 = FitnessFunctionUtils.f3(individual);
 
@@ -428,42 +444,44 @@ public class GeneticAlgorithm {
 
         //判断是否违反教师连上设定
         for (Map.Entry<String, List<String>> oneTeacherOccupyHour : teacherOccupyHour.entrySet()) {
-            int maxContinuousClassHour = teacherMaxContinuousClassHour.get(oneTeacherOccupyHour.getKey());
+            if (teacherMaxContinuousClassHour.containsKey(oneTeacherOccupyHour.getKey())) {
+                int maxContinuousClassHour = teacherMaxContinuousClassHour.get(oneTeacherOccupyHour.getKey());
 
-            //{"0-1",[0,1,2]}
-            Map<String, List<Integer>> intervalSections = new HashMap<>();
-            oneTeacherOccupyHour.getValue().stream().forEach(hour -> {
-                String[] hourSplit = hour.split("-");
+                //{"0-1",[0,1,2]}
+                Map<String, List<Integer>> intervalSections = new HashMap<>();
+                oneTeacherOccupyHour.getValue().stream().forEach(hour -> {
+                    String[] hourSplit = hour.split("-");
 
-                String interval = String.format("%s-%s", hourSplit[0], hourSplit[1]);
-                int section = Integer.valueOf(hourSplit[2]);
+                    String interval = String.format("%s-%s", hourSplit[0], hourSplit[1]);
+                    int section = Integer.valueOf(hourSplit[2]);
 
-                if (!intervalSections.containsKey(interval)) {
-                    intervalSections.put(interval, new ArrayList<>());
-                }
-                intervalSections.get(interval).add(section);
-            });
-
-            //开始判断这个教师是否违反连上设定
-            for (List<Integer> sections : intervalSections.values()) {
-                Collections.sort(sections); //从小到大排序
-
-                //获取最大连续的长度
-                int currentContinueLong = 1;
-                int maxContinueLong = currentContinueLong;
-                for (int i = 1; i < sections.size(); i++) {
-                    int section = sections.get(i);
-                    if (sections.get(i - 1) == section - 1) {
-                        currentContinueLong++;
-                        if (maxContinueLong < currentContinueLong)
-                            maxContinueLong = currentContinueLong;
-                    } else {
-                        currentContinueLong = 1;
+                    if (!intervalSections.containsKey(interval)) {
+                        intervalSections.put(interval, new ArrayList<>());
                     }
-                }
+                    intervalSections.get(interval).add(section);
+                });
 
-                if (maxContinueLong > maxContinuousClassHour) //违反教师最大连上
-                    violations++;
+                //开始判断这个教师是否违反连上设定
+                for (List<Integer> sections : intervalSections.values()) {
+                    Collections.sort(sections); //从小到大排序
+
+                    //获取最大连续的长度
+                    int currentContinueLong = 1;
+                    int maxContinueLong = currentContinueLong;
+                    for (int i = 1; i < sections.size(); i++) {
+                        int section = sections.get(i);
+                        if (sections.get(i - 1) == section - 1) {
+                            currentContinueLong++;
+                            if (maxContinueLong < currentContinueLong)
+                                maxContinueLong = currentContinueLong;
+                        } else {
+                            currentContinueLong = 1;
+                        }
+                    }
+
+                    if (maxContinueLong > maxContinuousClassHour) //违反教师最大连上
+                        violations++;
+                }
             }
         }
 

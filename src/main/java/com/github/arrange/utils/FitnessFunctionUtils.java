@@ -15,29 +15,31 @@ public class FitnessFunctionUtils {
      * @param classArranges
      * @return
      */
-    public static double f1(ConcurrentHashMap<String, ConcurrentHashMap<String, Vector<String>>> classArranges, ConcurrentHashMap<String, Vector<String>> subjectPriorityArrangeHour, ConcurrentHashMap<String, AutoCourseInfo> courseInfoMap) {
+    public static double f1(ConcurrentHashMap<String, ConcurrentHashMap<String, Vector<String>>> classArranges, ConcurrentHashMap<String, ConcurrentHashMap<String, Vector<String>>> gradeStageSubjectPriorityArrangeHour, ConcurrentHashMap<String, AutoCourseInfo> courseInfoMap) {
 
         int violations = 0; //用于记录违反的次数
 
         //遍历所有的班级
-        for (ConcurrentHashMap<String, Vector<String>> oneClassArrange : classArranges.values()) {
+        for (Map.Entry<String, ConcurrentHashMap<String, Vector<String>>> oneClassArrange : classArranges.entrySet()) {
 
             //获取当前班级所有CourseInfoID
-            List<String> currentClassCourseInfoIDs = new ArrayList<>(oneClassArrange.keySet());
+            List<String> currentClassCourseInfoIDs = new ArrayList<>(oneClassArrange.getValue().keySet());
 
             for (String courseInfoID : currentClassCourseInfoIDs) {
 
                 //获取科目
                 String subject = courseInfoMap.get(courseInfoID).getSubjectId();
 
-                for (String hour : oneClassArrange.get(courseInfoID)) {
+                for (String hour : oneClassArrange.getValue().get(courseInfoID)) {
                     String[] hourSplit = hour.split("-");
 
                     //获取day的时段
                     String dayHour = String.format("%s-%s", hourSplit[1], hourSplit[2]);
 
-                    if (!subjectPriorityArrangeHour.get(subject).contains(dayHour))
-                        violations++;
+                    if (gradeStageSubjectPriorityArrangeHour.containsKey(oneClassArrange.getKey()) && gradeStageSubjectPriorityArrangeHour.get(oneClassArrange.getKey()).containsKey(subject)) {
+                        if (!gradeStageSubjectPriorityArrangeHour.get(oneClassArrange.getKey()).get(subject).contains(dayHour))
+                            violations++;
+                    }
 
                 }
             }

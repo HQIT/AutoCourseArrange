@@ -19,7 +19,7 @@ public final class CourseArrangeUtils {
      * @param courseInfos
      * @param courseInfoMap
      * @param intervalMaxLesson
-     * @param subjectPriorityArrangeHour
+     * @param gradeStageSubjectPriorityArrangeHour
      * @param teacherOccupyHourAndCampus
      * @param classroomOccupyHour
      * @param classCanArrangeHours
@@ -35,7 +35,7 @@ public final class CourseArrangeUtils {
             Vector<AutoCourseInfo> courseInfos,
             ConcurrentHashMap<String, AutoCourseInfo> courseInfoMap,
             ConcurrentHashMap<String, Vector<String>> intervalMaxLesson,
-            ConcurrentHashMap<String, Vector<String>> subjectPriorityArrangeHour,
+            ConcurrentHashMap<String, ConcurrentHashMap<String, Vector<String>>> gradeStageSubjectPriorityArrangeHour,
             ConcurrentHashMap<String, ConcurrentHashMap<String, String>> teacherOccupyHourAndCampus,
             ConcurrentHashMap<String, Vector<String>> classroomOccupyHour,
             ConcurrentHashMap<String, Vector<String>> classCanArrangeHours,
@@ -60,7 +60,7 @@ public final class CourseArrangeUtils {
             population.parallelStream().forEach(individual -> {
                 //计算适应度
                 double fitness =
-                        GeneticAlgorithm.getFitness(individual, courseInfoMap, subjectPriorityArrangeHour, intervalMaxLesson, teacherMutex, teacherMaxContinuousClassHour, teacherTrainsCampusNeedInterval, subjectNextNotArrangeSubjects);
+                        GeneticAlgorithm.getFitness(individual, courseInfoMap, gradeStageSubjectPriorityArrangeHour, intervalMaxLesson, teacherMutex, teacherMaxContinuousClassHour, teacherTrainsCampusNeedInterval, subjectNextNotArrangeSubjects);
                 individualFitnessMap.put(individual, fitness);
             });
 
@@ -80,7 +80,7 @@ public final class CourseArrangeUtils {
                 totalFitness += fitness;
             }
 
-            double best_f1 = FitnessFunctionUtils.f1(population.get(bestIndex), subjectPriorityArrangeHour, courseInfoMap); //最佳个体节次优度
+            double best_f1 = FitnessFunctionUtils.f1(population.get(bestIndex), gradeStageSubjectPriorityArrangeHour, courseInfoMap); //最佳个体节次优度
             double best_f2 = FitnessFunctionUtils.f2(population.get(bestIndex)); //最佳个体均匀度
             int hard_conflict = GeneticAlgorithm.getHardConstraintsConflictTimes(population.get(bestIndex), courseInfoMap, teacherMutex);
             int soft_conflict = GeneticAlgorithm.getUserdefinedConstraintsConclictTimes(population.get(bestIndex), courseInfoMap, intervalMaxLesson, teacherMaxContinuousClassHour, teacherTrainsCampusNeedInterval, subjectNextNotArrangeSubjects);
@@ -126,7 +126,7 @@ public final class CourseArrangeUtils {
                 //以一定概率交叉产生新个体
                 if(Math.random() <= crossed_probability) {
                     offsprings.addAll(
-                            GeneticAlgorithm.crossover(individual_1, individual_2)
+                            GeneticAlgorithm.crossover(individual_1, individual_2, courseInfoMap)
                     );
                 } else {
                     offsprings.add(CloneUtils.clone(individual_1));
@@ -162,7 +162,7 @@ public final class CourseArrangeUtils {
         for (ConcurrentHashMap<String, ConcurrentHashMap<String, Vector<String>>> individual : population) {
 
             //计算适应度
-            double fitness = GeneticAlgorithm.getFitness(individual, courseInfoMap, subjectPriorityArrangeHour, intervalMaxLesson, teacherMutex, teacherMaxContinuousClassHour, teacherTrainsCampusNeedInterval, subjectNextNotArrangeSubjects);
+            double fitness = GeneticAlgorithm.getFitness(individual, courseInfoMap, gradeStageSubjectPriorityArrangeHour, intervalMaxLesson, teacherMutex, teacherMaxContinuousClassHour, teacherTrainsCampusNeedInterval, subjectNextNotArrangeSubjects);
 
             if (bestFitness < fitness) {
                 bestFitness = fitness;

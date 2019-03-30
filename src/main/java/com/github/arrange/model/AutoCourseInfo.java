@@ -5,9 +5,10 @@ import java.io.Serializable;
 public class AutoCourseInfo implements Serializable {
     public AutoCourseInfo(){}
 
-    public AutoCourseInfo(String courseInfoID, String grade, String classId, String subjectId, String teacherId, String classroomId, String campus, String type, int periods) {
+    public AutoCourseInfo(String courseInfoID, String grade, int stage, String classId, String subjectId, String teacherId, String classroomId, String campus, String type, int periods) {
         this.courseInfoID = courseInfoID;
         this.grade = grade;
+        this.stage = stage;
         this.classId = classId;
         this.subjectId = subjectId;
         this.teacherId = teacherId;
@@ -26,6 +27,11 @@ public class AutoCourseInfo implements Serializable {
      * 年级
      */
     private String grade;
+
+    /**
+     * 学段
+     */
+    private int stage;
 
     /**
      * 班级id
@@ -76,6 +82,14 @@ public class AutoCourseInfo implements Serializable {
 
     public void setGrade(String grade) {
         this.grade = grade;
+    }
+
+    public int getStage() {
+        return stage;
+    }
+
+    public void setStage(int stage) {
+        this.stage = stage;
     }
 
     public String getClassId() {
@@ -132,5 +146,9 @@ public class AutoCourseInfo implements Serializable {
 
     public void setPeriods(int periods) {
         this.periods = periods;
+    }
+
+    public String getGradeAndStage() {
+        return String.format("%s-%d", this.grade, this.stage);
     }
 }
