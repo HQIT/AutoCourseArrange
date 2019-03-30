@@ -47,7 +47,7 @@ public final class CourseArrangeUtils {
             int generationSize
     ) {
         //产生初始种群
-        List<ConcurrentHashMap<String, ConcurrentHashMap<String, Vector<String>>>> population =
+        Vector<ConcurrentHashMap<String, ConcurrentHashMap<String, Vector<String>>>> population =
                 GeneticAlgorithm.generateInitialPopulationRandom(courseInfos, teacherOccupyHourAndCampus, classroomOccupyHour, classCanArrangeHours, populationSize);
 
         //遗传i代
@@ -119,7 +119,7 @@ public final class CourseArrangeUtils {
                 ConcurrentHashMap<String, ConcurrentHashMap<String, Vector<String>>> individual_1 = couple.get(0);
                 ConcurrentHashMap<String, ConcurrentHashMap<String, Vector<String>>> individual_2 = couple.get(1);
 
-                List<ConcurrentHashMap<String, ConcurrentHashMap<String, Vector<String>>>> offsprings = new ArrayList<>(); //记录要放入下一代种群中的个体
+                Vector<ConcurrentHashMap<String, ConcurrentHashMap<String, Vector<String>>>> offsprings = new Vector<>(); //记录要放入下一代种群中的个体
 
                 double crossed_probability = Const.crossed_probability;
 
