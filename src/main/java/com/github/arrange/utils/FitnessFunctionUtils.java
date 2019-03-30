@@ -26,9 +26,10 @@ public class FitnessFunctionUtils {
             List<String> currentClassCourseInfoIDs = new ArrayList<>(oneClassArrange.getValue().keySet());
 
             for (String courseInfoID : currentClassCourseInfoIDs) {
+                AutoCourseInfo autoCourseInfo = courseInfoMap.get(courseInfoID);
 
                 //获取科目
-                String subject = courseInfoMap.get(courseInfoID).getSubjectId();
+                String subject = autoCourseInfo.getSubjectId();
 
                 for (String hour : oneClassArrange.getValue().get(courseInfoID)) {
                     String[] hourSplit = hour.split("-");
@@ -36,8 +37,8 @@ public class FitnessFunctionUtils {
                     //获取day的时段
                     String dayHour = String.format("%s-%s", hourSplit[1], hourSplit[2]);
 
-                    if (gradeStageSubjectPriorityArrangeHour.containsKey(oneClassArrange.getKey()) && gradeStageSubjectPriorityArrangeHour.get(oneClassArrange.getKey()).containsKey(subject)) {
-                        if (!gradeStageSubjectPriorityArrangeHour.get(oneClassArrange.getKey()).get(subject).contains(dayHour))
+                    if (gradeStageSubjectPriorityArrangeHour.containsKey(autoCourseInfo.getGradeAndStage()) && gradeStageSubjectPriorityArrangeHour.get(autoCourseInfo.getGradeAndStage()).containsKey(subject)) {
+                        if (!gradeStageSubjectPriorityArrangeHour.get(autoCourseInfo.getGradeAndStage()).get(subject).contains(dayHour))
                             violations++;
                     }
 
