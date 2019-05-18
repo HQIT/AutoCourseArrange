@@ -14,20 +14,20 @@ public class ClassHourTools {
     public static Vector<String> generateClassHours() {
         Vector<String> classHours = new Vector<>();
 
-        classHours.add("0-1-0"); classHours.add("0-1-1"); classHours.add("0-1-2"); classHours.add("0-1-3"); classHours.add("0-1-4");
-        classHours.add("0-3-0"); classHours.add("0-3-1"); classHours.add("0-3-2"); classHours.add("0-3-3"); classHours.add("0-3-4");
+        classHours.add("0-1-0"); classHours.add("0-1-1"); classHours.add("0-1-2"); classHours.add("0-1-3");
+        classHours.add("0-3-0"); classHours.add("0-3-1"); classHours.add("0-3-2"); classHours.add("0-3-3");
 
-        classHours.add("1-1-0"); classHours.add("1-1-1"); classHours.add("1-1-2"); classHours.add("1-1-3"); classHours.add("1-1-4");
-        classHours.add("1-3-0"); classHours.add("1-3-1"); classHours.add("1-3-2"); classHours.add("1-3-3"); classHours.add("1-3-4");
+        classHours.add("1-1-0"); classHours.add("1-1-1"); classHours.add("1-1-2"); classHours.add("1-1-3");
+        classHours.add("1-3-0"); classHours.add("1-3-1"); classHours.add("1-3-2"); classHours.add("1-3-3");
 
-        classHours.add("2-1-0"); classHours.add("2-1-1"); classHours.add("2-1-2"); classHours.add("2-1-3"); classHours.add("2-1-4");
-        classHours.add("2-3-0"); classHours.add("2-3-1"); classHours.add("2-3-2"); classHours.add("2-3-3"); classHours.add("2-3-4");
+        classHours.add("2-1-0"); classHours.add("2-1-1"); classHours.add("2-1-2"); classHours.add("2-1-3");
+        classHours.add("2-3-0"); classHours.add("2-3-1"); classHours.add("2-3-2"); classHours.add("2-3-3");
 
-        classHours.add("3-1-0"); classHours.add("3-1-1"); classHours.add("3-1-2"); classHours.add("3-1-3"); classHours.add("3-1-4");
-        classHours.add("3-3-0"); classHours.add("3-3-1"); classHours.add("3-3-2"); classHours.add("3-3-3"); classHours.add("3-3-4");
+        classHours.add("3-1-0"); classHours.add("3-1-1"); classHours.add("3-1-2"); classHours.add("3-1-3");
+        classHours.add("3-3-0"); classHours.add("3-3-1"); classHours.add("3-3-2"); classHours.add("3-3-3");
 
-        classHours.add("4-1-0"); classHours.add("4-1-1"); classHours.add("4-1-2"); classHours.add("4-1-3"); classHours.add("4-1-4");
-        classHours.add("4-3-0"); classHours.add("4-3-1"); classHours.add("4-3-2"); classHours.add("4-3-3"); classHours.add("4-3-4");
+        classHours.add("4-1-0"); classHours.add("4-1-1"); classHours.add("4-1-2"); classHours.add("4-1-3");
+        classHours.add("4-3-0"); classHours.add("4-3-1"); classHours.add("4-3-2"); classHours.add("4-3-3");
 
         return classHours;
     }
@@ -77,7 +77,6 @@ public class ClassHourTools {
                 oneTeacherOccupy.put("2-3-1", campus);
                 oneTeacherOccupy.put("2-3-2", campus);
                 oneTeacherOccupy.put("2-3-3", campus);
-                oneTeacherOccupy.put("2-3-4", campus);
 
                 teacherOccupyHourAndCampus.put(teacherID, oneTeacherOccupy);
             }
@@ -90,7 +89,6 @@ public class ClassHourTools {
                 oneTeacherOccupy.put("1-3-1", campus);
                 oneTeacherOccupy.put("1-3-2", campus);
                 oneTeacherOccupy.put("1-3-3", campus);
-                oneTeacherOccupy.put("1-3-4", campus);
 
                 teacherOccupyHourAndCampus.put(teacherID, oneTeacherOccupy);
             }
@@ -103,7 +101,6 @@ public class ClassHourTools {
                 oneTeacherOccupy.put("0-3-1", campus);
                 oneTeacherOccupy.put("0-3-2", campus);
                 oneTeacherOccupy.put("0-3-3", campus);
-                oneTeacherOccupy.put("0-3-4", campus);
 
                 teacherOccupyHourAndCampus.put(teacherID, oneTeacherOccupy);
             }
@@ -116,7 +113,6 @@ public class ClassHourTools {
                 oneTeacherOccupy.put("1-1-1", campus);
                 oneTeacherOccupy.put("1-1-2", campus);
                 oneTeacherOccupy.put("1-1-3", campus);
-                oneTeacherOccupy.put("1-1-4", campus);
 
                 teacherOccupyHourAndCampus.put(teacherID, oneTeacherOccupy);
             }
@@ -129,17 +125,6 @@ public class ClassHourTools {
                 oneTeacherOccupy.put("0-1-1", campus);
                 oneTeacherOccupy.put("0-1-2", campus);
                 oneTeacherOccupy.put("0-1-3", campus);
-                oneTeacherOccupy.put("0-1-4", campus);
-
-                teacherOccupyHourAndCampus.put(teacherID, oneTeacherOccupy);
-            }
-
-            //设置美术老师周一上午2、3节不允许安排（教研活动）
-            else if (teacherID.contains("美术")) {
-                ConcurrentHashMap<String, String> oneTeacherOccupy = new ConcurrentHashMap<>();
-
-                oneTeacherOccupy.put("0-1-1", campus);
-                oneTeacherOccupy.put("0-1-2", campus);
 
                 teacherOccupyHourAndCampus.put(teacherID, oneTeacherOccupy);
             }
@@ -154,15 +139,6 @@ public class ClassHourTools {
                 teacherOccupyHourAndCampus.put(teacherID, oneTeacherOccupy);
             }
 
-            //设置劳技老师周一上午2、3节不允许安排（教研活动）
-            else if (teacherID.contains("劳技")) {
-                ConcurrentHashMap<String, String> oneTeacherOccupy = new ConcurrentHashMap<>();
-
-                oneTeacherOccupy.put("0-1-1", campus);
-                oneTeacherOccupy.put("0-1-2", campus);
-
-                teacherOccupyHourAndCampus.put(teacherID, oneTeacherOccupy);
-            }
 
             //设置体育老师周三上午2、3节不允许安排（教研活动）
             else if (teacherID.contains("体育")) {
@@ -210,7 +186,7 @@ public class ClassHourTools {
     public static ConcurrentHashMap<String, Vector<String>> setClassOccupyHour(Vector<AutoCourseInfo> courseInfos) {
         ConcurrentHashMap<String, Vector<String>> classOccupyHour = new ConcurrentHashMap<>();
 
-        //假设每个班级都被组合课占用了16个课时
+        /*//假设每个班级都被组合课占用了16个课时
         //分别为周一上午第4节，下午2、3、5节；周二下午2-5节；周三下午3-5节；周四下午1-3；周五下午1-2节
         Vector<String> shiftArrangeHour = new Vector<>();
         shiftArrangeHour.add("0-1-3"); shiftArrangeHour.add("0-3-1"); shiftArrangeHour.add("0-3-2");  shiftArrangeHour.add("0-3-4");
@@ -222,14 +198,33 @@ public class ClassHourTools {
         //假设每个班级每周都有2节长课时
         //分别安排在周三上午后三节
         shiftArrangeHour.add("2-1-2-1110"); shiftArrangeHour.add("2-1-3-0111");
-        //shiftArrangeHour.add("4-3-2-1110"); shiftArrangeHour.add("4-3-3-0111");
+        //shiftArrangeHour.add("4-3-2-1110"); shiftArrangeHour.add("4-3-3-0111");*/
 
         //获取所有的班级ID
         List<String> classIDs = courseInfos.stream().map(oneCourseInfo -> oneCourseInfo.getClassId()).collect(Collectors.toList());
 
+        Vector<String> shiftArrangeHour_1 = new Vector<>();
+        shiftArrangeHour_1.add("0-1-3"); shiftArrangeHour_1.add("0-3-0"); shiftArrangeHour_1.add("0-3-1"); shiftArrangeHour_1.add("0-3-2"); shiftArrangeHour_1.add("0-3-3");
+        shiftArrangeHour_1.add("1-1-3"); shiftArrangeHour_1.add("1-3-0"); shiftArrangeHour_1.add("1-3-1"); shiftArrangeHour_1.add("1-3-2");
+        shiftArrangeHour_1.add("2-3-0"); shiftArrangeHour_1.add("2-3-1"); shiftArrangeHour_1.add("2-3-2"); shiftArrangeHour_1.add("2-3-3");
+        shiftArrangeHour_1.add("3-3-0"); shiftArrangeHour_1.add("3-3-1"); shiftArrangeHour_1.add("3-3-2"); shiftArrangeHour_1.add("3-3-3");
+        shiftArrangeHour_1.add("4-3-0"); shiftArrangeHour_1.add("4-3-1"); shiftArrangeHour_1.add("4-3-2"); shiftArrangeHour_1.add("4-3-3");
+
+        Vector<String> shiftArrangeHour_2 = new Vector<>();
+        shiftArrangeHour_2.add("0-3-0"); shiftArrangeHour_2.add("0-3-1"); shiftArrangeHour_2.add("0-3-2"); shiftArrangeHour_2.add("0-3-3");
+        shiftArrangeHour_2.add("1-1-3"); shiftArrangeHour_2.add("1-3-0"); shiftArrangeHour_2.add("1-3-1"); shiftArrangeHour_2.add("1-3-2"); shiftArrangeHour_2.add("1-3-3");
+        shiftArrangeHour_2.add("2-3-0"); shiftArrangeHour_2.add("2-3-1"); shiftArrangeHour_2.add("2-3-2"); shiftArrangeHour_2.add("2-3-3");
+        shiftArrangeHour_2.add("3-1-3"); shiftArrangeHour_2.add("3-3-1"); shiftArrangeHour_2.add("3-3-2"); shiftArrangeHour_2.add("3-3-3");
+        shiftArrangeHour_2.add("4-3-0"); shiftArrangeHour_2.add("4-3-1"); shiftArrangeHour_2.add("4-3-2"); shiftArrangeHour_2.add("4-3-3");
+
         //设置班级已安排课程的时段
         classIDs.stream().forEach(oneClass -> {
-            classOccupyHour.put(oneClass, new Vector<>(shiftArrangeHour));
+            //classOccupyHour.put(oneClass, new Vector<>(shiftArrangeHour));
+            if (oneClass.equals("高一(1)班") || oneClass.equals("高一(2)班") || oneClass.equals("高一(3)班") || oneClass.equals("高一(4)班")) {
+                classOccupyHour.put(oneClass, new Vector<>(shiftArrangeHour_1));
+            } else if (oneClass.equals("高二(1)班") || oneClass.equals("高二(2)班") || oneClass.equals("高二(3)班") || oneClass.equals("高二(4)班")) {
+                classOccupyHour.put(oneClass, new Vector<>(shiftArrangeHour_2));
+            }
         });
 
         return classOccupyHour;

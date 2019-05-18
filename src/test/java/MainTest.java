@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 public class MainTest {
     public static void main(String[] args) {
         //获取所有的CourseInfo（正常课时类型的行政班课程的CourseInfo）
-        Vector<AutoCourseInfo> courseInfos = CourseInfoTools.generateCourseInfoList();
+        Vector<AutoCourseInfo> courseInfos = CourseInfoTools.generateCourseInfoList3();
         ConcurrentHashMap<String, AutoCourseInfo> courseInfoMap = new ConcurrentHashMap<>();
         courseInfos.stream().forEach(oneCourseInfo -> {
             courseInfoMap.put(oneCourseInfo.getCourseInfoID(), oneCourseInfo);
@@ -84,8 +84,8 @@ public class MainTest {
                 teacherMaxContinuousClassHour,
                 teacherTrainsCampusNeedInterval,
                 subjectNextNotArrangeSubjects,
-                100,
-                5000
+                500,
+                3000
         );
 
         if (!wholeOccupy.getHours().isEmpty()) {

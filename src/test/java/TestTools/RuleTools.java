@@ -1,6 +1,5 @@
 package TestTools;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Vector;
 import java.util.concurrent.ConcurrentHashMap;
@@ -24,7 +23,7 @@ public class RuleTools {
 
         togetherClass.put("体育", sportsTogether);*/
 
-        //音乐合班
+        /*//音乐合班
         Vector<Vector<String>> musicTogether = new Vector<>();
 
         //高一1、2班的音乐为合班
@@ -38,7 +37,7 @@ public class RuleTools {
         musicTogether.add(music_2);
 
         togetherClass.put("音乐", musicTogether);
-
+*/
         return togetherClass;
     }
 
@@ -96,14 +95,14 @@ public class RuleTools {
     public static ConcurrentHashMap<String, Vector<String>> getSubjectNextNotArrangeSubjects() {
         ConcurrentHashMap<String, Vector<String>> subjectNextNotArrangeSubjects = new ConcurrentHashMap<>();
 
-        //设定语文课后不上体育
+        /*//设定语文课后不上体育
         subjectNextNotArrangeSubjects.put("语文", new Vector<>(Arrays.asList("体育")));
 
         //设定美术课后不上劳技、体育、音乐课
         subjectNextNotArrangeSubjects.put("美术", new Vector<>(Arrays.asList("劳技", "音乐", "体育")));
 
         //设定物理课后不上化学课
-        subjectNextNotArrangeSubjects.put("物理", new Vector<>(Arrays.asList("化学")));
+        subjectNextNotArrangeSubjects.put("物理", new Vector<>(Arrays.asList("化学")));*/
 
         return subjectNextNotArrangeSubjects;
     }

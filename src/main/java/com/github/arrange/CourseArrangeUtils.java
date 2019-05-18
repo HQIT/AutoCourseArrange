@@ -4,6 +4,11 @@ import com.github.arrange.GA.GeneticAlgorithm;
 import com.github.arrange.model.AutoCourseInfo;
 import com.github.arrange.utils.CloneUtils;
 import com.github.arrange.utils.FitnessFunctionUtils;
+import org.apache.poi.hssf.usermodel.HSSFRow;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+
+import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
@@ -50,6 +55,14 @@ public final class CourseArrangeUtils {
         Vector<ConcurrentHashMap<String, ConcurrentHashMap<String, Vector<String>>>> population =
                 GeneticAlgorithm.generateInitialPopulationRandom(courseInfos, teacherOccupyHourAndCampus, classroomOccupyHour, classCanArrangeHours, populationSize);
 
+        HSSFWorkbook wb = new HSSFWorkbook(); //用于打印适应度
+        HSSFSheet sheet = wb.createSheet("适应度");
+        //创建表头
+        HSSFRow row = sheet.createRow(0);
+        row.createCell(0).setCellValue("代");
+        row.createCell(1).setCellValue("最佳适应度");
+        row.createCell(2).setCellValue("平均适应度");
+
         //遗传i代
         for (int i = 0; i < generationSize; i++ ) {
             Vector<ConcurrentHashMap<String, ConcurrentHashMap<String, Vector<String>>>> offspringPopulation = new Vector(); //记录下一代种群
@@ -89,6 +102,12 @@ public final class CourseArrangeUtils {
 
             //打印此代种群中的最佳个体信息
             System.out.println("第" + (i + 1) + "代最佳适应度：" + bestFitness + "，违反硬约束" + hard_conflict + "次，违反自定义约束" + soft_conflict + "次, 节次优度：" + best_f1 + "，均匀度:" + best_f2 + "。平均适应度:" + averageFitness);
+
+            //记录适应度
+            row = sheet.createRow(i + 1);
+            row.createCell(0).setCellValue(i + 1);
+            row.createCell(1).setCellValue(bestFitness);
+            row.createCell(2).setCellValue(averageFitness);
 
             //if (bestFitness > 0.85) break;
 
@@ -154,6 +173,17 @@ public final class CourseArrangeUtils {
 
             population = offspringPopulation;
 
+        }
+
+        //打印适应度
+        try {
+            String fileName = "D:/fitness" + System.currentTimeMillis() + ".xls";
+            FileOutputStream fout = new FileOutputStream(fileName);
+            wb.write(fout);
+            fout.close();
+            wb.close();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
         //获取最后一代种群中的最优解

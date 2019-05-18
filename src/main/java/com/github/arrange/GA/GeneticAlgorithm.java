@@ -1,6 +1,5 @@
 package com.github.arrange.GA;
 
-import com.github.arrange.Const;
 import com.github.arrange.handler.ConflictHandler;
 import com.github.arrange.model.AutoCourseInfo;
 import com.github.arrange.utils.ClassHourUtils;
@@ -221,7 +220,7 @@ public class GeneticAlgorithm {
             }
         } else {
             //一定几率执行消除教师课时冲突
-            if (hardViolations > 0 && Math.random() < 0.1) {
+            if (hardViolations > 0 && Math.random() < 0.25) {
                 ConflictHandler.handleTeacherHourConflict(individual, courseInfoMap, teacherOccupyHourAndCampus, classroomOccupyHour, classCanArrangeHours);
             } else {
                 subMutation(individual, classID, courseInfoMap, teacherOccupyHourAndCampus, classroomOccupyHour, classCanArrangeHours);
@@ -314,7 +313,7 @@ public class GeneticAlgorithm {
         //double f3 = FitnessFunctionUtils.f3(individual);
 
         double a1 = 0.96, a2 = 0.98;
-        double fitness = (0.5 * f1 + 0.5 * f2) * Math.pow(a1, hard_violations) * Math.pow(a2, soft_violations);
+        double fitness = (0.3 * f1 + 0.7 * f2) * Math.pow(a1, hard_violations) * Math.pow(a2, soft_violations);
 
         return fitness;
     }
