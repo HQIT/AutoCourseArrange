@@ -10,5 +10,5 @@ public class Const {
     /**
      * 变异概率
      */
-    public static double mutation_probability = 0.05;
+    public static double mutation_probability = 0.02;
 }

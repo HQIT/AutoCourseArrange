@@ -205,25 +205,56 @@ public class ClassHourTools {
 
         Vector<String> shiftArrangeHour_1 = new Vector<>();
         shiftArrangeHour_1.add("0-1-3"); shiftArrangeHour_1.add("0-3-0"); shiftArrangeHour_1.add("0-3-1"); shiftArrangeHour_1.add("0-3-2"); shiftArrangeHour_1.add("0-3-3");
-        shiftArrangeHour_1.add("1-1-3"); shiftArrangeHour_1.add("1-3-0"); shiftArrangeHour_1.add("1-3-1"); shiftArrangeHour_1.add("1-3-2");
+        shiftArrangeHour_1.add("1-1-3"); shiftArrangeHour_1.add("1-3-1"); shiftArrangeHour_1.add("1-3-2");
         shiftArrangeHour_1.add("2-3-0"); shiftArrangeHour_1.add("2-3-1"); shiftArrangeHour_1.add("2-3-2"); shiftArrangeHour_1.add("2-3-3");
-        shiftArrangeHour_1.add("3-3-0"); shiftArrangeHour_1.add("3-3-1"); shiftArrangeHour_1.add("3-3-2"); shiftArrangeHour_1.add("3-3-3");
-        shiftArrangeHour_1.add("4-3-0"); shiftArrangeHour_1.add("4-3-1"); shiftArrangeHour_1.add("4-3-2"); shiftArrangeHour_1.add("4-3-3");
+        shiftArrangeHour_1.add("3-3-0"); shiftArrangeHour_1.add("3-3-1"); shiftArrangeHour_1.add("3-3-2");
+        shiftArrangeHour_1.add("4-3-0"); shiftArrangeHour_1.add("4-3-2"); shiftArrangeHour_1.add("4-3-3");
 
         Vector<String> shiftArrangeHour_2 = new Vector<>();
         shiftArrangeHour_2.add("0-3-0"); shiftArrangeHour_2.add("0-3-1"); shiftArrangeHour_2.add("0-3-2"); shiftArrangeHour_2.add("0-3-3");
-        shiftArrangeHour_2.add("1-1-3"); shiftArrangeHour_2.add("1-3-0"); shiftArrangeHour_2.add("1-3-1"); shiftArrangeHour_2.add("1-3-2"); shiftArrangeHour_2.add("1-3-3");
-        shiftArrangeHour_2.add("2-3-0"); shiftArrangeHour_2.add("2-3-1"); shiftArrangeHour_2.add("2-3-2"); shiftArrangeHour_2.add("2-3-3");
+        shiftArrangeHour_2.add("1-1-3"); shiftArrangeHour_2.add("1-3-0"); shiftArrangeHour_2.add("1-3-2"); shiftArrangeHour_2.add("1-3-3");
+        shiftArrangeHour_2.add("2-3-0"); shiftArrangeHour_2.add("2-3-2"); shiftArrangeHour_2.add("2-3-3");
         shiftArrangeHour_2.add("3-1-3"); shiftArrangeHour_2.add("3-3-1"); shiftArrangeHour_2.add("3-3-2"); shiftArrangeHour_2.add("3-3-3");
-        shiftArrangeHour_2.add("4-3-0"); shiftArrangeHour_2.add("4-3-1"); shiftArrangeHour_2.add("4-3-2"); shiftArrangeHour_2.add("4-3-3");
+        shiftArrangeHour_2.add("4-3-0"); shiftArrangeHour_2.add("4-3-1"); shiftArrangeHour_2.add("4-3-3");
 
         //设置班级已安排课程的时段
         classIDs.stream().forEach(oneClass -> {
             //classOccupyHour.put(oneClass, new Vector<>(shiftArrangeHour));
             if (oneClass.equals("高一(1)班") || oneClass.equals("高一(2)班") || oneClass.equals("高一(3)班") || oneClass.equals("高一(4)班")) {
                 classOccupyHour.put(oneClass, new Vector<>(shiftArrangeHour_1));
+
+                //长课时
+                if (oneClass.equals("高一(1)班")) {
+                    classOccupyHour.get(oneClass).add("2-1-0"); classOccupyHour.get(oneClass).add("2-1-1"); classOccupyHour.get(oneClass).add("2-1-2");
+                    classOccupyHour.get(oneClass).add("4-1-0"); classOccupyHour.get(oneClass).add("4-1-1"); classOccupyHour.get(oneClass).add("4-1-2");
+                } else if (oneClass.equals("高一(2)班")) {
+                    classOccupyHour.get(oneClass).add("3-1-0"); classOccupyHour.get(oneClass).add("3-1-1"); classOccupyHour.get(oneClass).add("3-1-2");
+                    classOccupyHour.get(oneClass).add("4-1-0"); classOccupyHour.get(oneClass).add("4-1-1"); classOccupyHour.get(oneClass).add("4-1-2");
+                } else if (oneClass.equals("高一(3)班")) {
+                    classOccupyHour.get(oneClass).add("2-1-0"); classOccupyHour.get(oneClass).add("2-1-1"); classOccupyHour.get(oneClass).add("2-1-2");
+                    classOccupyHour.get(oneClass).add("3-1-0"); classOccupyHour.get(oneClass).add("3-1-1"); classOccupyHour.get(oneClass).add("3-1-2");
+                } else if (oneClass.equals("高一(4)班")) {
+                    classOccupyHour.get(oneClass).add("2-1-0"); classOccupyHour.get(oneClass).add("2-1-1"); classOccupyHour.get(oneClass).add("2-1-2");
+                    classOccupyHour.get(oneClass).add("4-1-0"); classOccupyHour.get(oneClass).add("4-1-1"); classOccupyHour.get(oneClass).add("4-1-2");
+                }
+
             } else if (oneClass.equals("高二(1)班") || oneClass.equals("高二(2)班") || oneClass.equals("高二(3)班") || oneClass.equals("高二(4)班")) {
                 classOccupyHour.put(oneClass, new Vector<>(shiftArrangeHour_2));
+
+                //长课时
+                if (oneClass.equals("高二(1)班")) {
+                    classOccupyHour.get(oneClass).add("2-1-0"); classOccupyHour.get(oneClass).add("2-1-1"); classOccupyHour.get(oneClass).add("2-1-2");
+                    classOccupyHour.get(oneClass).add("4-1-0"); classOccupyHour.get(oneClass).add("4-1-1"); classOccupyHour.get(oneClass).add("4-1-2");
+                } else if (oneClass.equals("高二(2)班")) {
+                    classOccupyHour.get(oneClass).add("3-1-0"); classOccupyHour.get(oneClass).add("3-1-1"); classOccupyHour.get(oneClass).add("3-1-2");
+                    classOccupyHour.get(oneClass).add("4-1-0"); classOccupyHour.get(oneClass).add("4-1-1"); classOccupyHour.get(oneClass).add("4-1-2");
+                } else if (oneClass.equals("高二(3)班")) {
+                    classOccupyHour.get(oneClass).add("2-1-0"); classOccupyHour.get(oneClass).add("2-1-1"); classOccupyHour.get(oneClass).add("2-1-2");
+                    classOccupyHour.get(oneClass).add("3-1-0"); classOccupyHour.get(oneClass).add("3-1-1"); classOccupyHour.get(oneClass).add("3-1-2");
+                } else if (oneClass.equals("高二(4)班")) {
+                    classOccupyHour.get(oneClass).add("2-1-0"); classOccupyHour.get(oneClass).add("2-1-1"); classOccupyHour.get(oneClass).add("2-1-2");
+                    classOccupyHour.get(oneClass).add("4-1-0"); classOccupyHour.get(oneClass).add("4-1-1"); classOccupyHour.get(oneClass).add("4-1-2");
+                }
             }
         });
 

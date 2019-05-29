@@ -313,7 +313,7 @@ public class GeneticAlgorithm {
         //double f3 = FitnessFunctionUtils.f3(individual);
 
         double a1 = 0.96, a2 = 0.98;
-        double fitness = (0.3 * f1 + 0.7 * f2) * Math.pow(a1, hard_violations) * Math.pow(a2, soft_violations);
+        double fitness = (0.7 * f1 + 0.3 * f2) * Math.pow(a1, hard_violations) * Math.pow(a2, soft_violations);
 
         return fitness;
     }

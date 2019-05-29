@@ -28,8 +28,9 @@ public class PriorityTools {
             subjectPriorityArrangeHour.get("语文").add("1-2");
             subjectPriorityArrangeHour.get("语文").add("1-3");
 
-            //英语优先安排在上午后三节
+            //英语优先安排在上午前三节
             subjectPriorityArrangeHour.put("英语", new Vector<>());
+            subjectPriorityArrangeHour.get("英语").add("1-0");
             subjectPriorityArrangeHour.get("英语").add("1-1");
             subjectPriorityArrangeHour.get("英语").add("1-2");
             subjectPriorityArrangeHour.get("英语").add("1-3");
@@ -39,7 +40,6 @@ public class PriorityTools {
             subjectPriorityArrangeHour.get("数学").add("1-0");
             subjectPriorityArrangeHour.get("数学").add("1-1");
             subjectPriorityArrangeHour.get("数学").add("1-2");
-            subjectPriorityArrangeHour.get("数学").add("1-3");
 
             //体育优先安排在上午第4节、下午第1、4节
             subjectPriorityArrangeHour.put("体育", new Vector<>());

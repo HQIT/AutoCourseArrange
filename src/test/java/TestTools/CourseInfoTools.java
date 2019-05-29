@@ -528,68 +528,68 @@ public class CourseInfoTools {
         Vector<AutoCourseInfo> courseInfoList = new Vector();
 
         //高一 1班
-        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2018", 1, "高一(1)班", "语文", "语文老师1", "教学楼101", "北校区", "major", 5));
-        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2018", 1, "高一(1)班", "数学", "数学老师1", "教学楼101", "北校区", "major", 6));
-        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2018", 1, "高一(1)班", "英语", "英语老师1", "教学楼101", "北校区", "major", 5));
-        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2018", 1, "高一(1)班", "体育", "体育老师1", "操场1区", "北校区", "else", 1));
+        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2018", 1, "高一(1)班", "语文", "语文老师1", "教学楼101", "北校区", "major", 3));
+        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2018", 1, "高一(1)班", "数学", "数学老师1", "教学楼101", "北校区", "major", 4));
+        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2018", 1, "高一(1)班", "英语", "英语老师1", "教学楼101", "北校区", "major", 4));
+        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2018", 1, "高一(1)班", "体育", "体育老师1", "操场1区", "北校区", "else", 2));
+        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2018", 1, "高一(1)班", "信息", "信息老师1", "机房1", "北校区", "else", 2));
         courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2018", 1, "高一(1)班", "劳技", "劳技老师1", "教学楼101", "北校区", "else", 1));
-        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2018", 1, "高一(1)班", "自习", "自习老师1", "教学楼101", "北校区", "else", 1));
 
         //高一 2班
-        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2018", 1, "高一(2)班", "语文", "语文老师1", "教学楼102", "北校区", "major", 5));
-        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2018", 1, "高一(2)班", "数学", "数学老师1", "教学楼102", "北校区", "major", 6));
-        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2018", 1, "高一(2)班", "英语", "英语老师1", "教学楼102", "北校区", "major", 5));
-        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2018", 1, "高一(2)班", "体育", "体育老师1", "操场1区", "北校区", "else", 1));
+        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2018", 1, "高一(2)班", "语文", "语文老师1", "教学楼102", "北校区", "major", 3));
+        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2018", 1, "高一(2)班", "数学", "数学老师1", "教学楼102", "北校区", "major", 4));
+        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2018", 1, "高一(2)班", "英语", "英语老师1", "教学楼102", "北校区", "major", 4));
+        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2018", 1, "高一(2)班", "体育", "体育老师1", "操场1区", "北校区", "else", 2));
+        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2018", 1, "高一(2)班", "信息", "信息老师1", "机房1", "北校区", "else", 2));
         courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2018", 1, "高一(2)班", "劳技", "劳技老师1", "教学楼102", "北校区", "else", 1));
-        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2018", 1, "高一(2)班", "自习", "自习老师2", "教学楼102", "北校区", "else", 1));
 
         //高一 3班
-        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2018", 1, "高一(3)班", "语文", "语文老师2", "教学楼103", "北校区", "major", 5));
-        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2018", 1, "高一(3)班", "数学", "数学老师2", "教学楼103", "北校区", "major", 6));
-        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2018", 1, "高一(3)班", "英语", "英语老师2", "教学楼103", "北校区", "major", 5));
-        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2018", 1, "高一(3)班", "体育", "体育老师1", "操场1区", "北校区", "else", 1));
+        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2018", 1, "高一(3)班", "语文", "语文老师2", "教学楼103", "北校区", "major", 3));
+        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2018", 1, "高一(3)班", "数学", "数学老师2", "教学楼103", "北校区", "major", 4));
+        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2018", 1, "高一(3)班", "英语", "英语老师2", "教学楼103", "北校区", "major", 4));
+        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2018", 1, "高一(3)班", "体育", "体育老师1", "操场1区", "北校区", "else", 2));
+        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2018", 1, "高一(3)班", "信息", "信息老师1", "机房1", "北校区", "else", 2));
         courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2018", 1, "高一(3)班", "劳技", "劳技老师1", "教学楼103", "北校区", "else", 1));
-        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2018", 1, "高一(3)班", "自习", "自习老师3", "教学楼103", "北校区", "else", 1));
 
         //高一 4班
-        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2018", 1, "高一(4)班", "语文", "语文老师2", "教学楼104", "北校区", "major", 5));
-        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2018", 1, "高一(4)班", "数学", "数学老师2", "教学楼104", "北校区", "major", 6));
-        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2018", 1, "高一(4)班", "英语", "英语老师2", "教学楼104", "北校区", "major", 5));
-        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2018", 1, "高一(4)班", "体育", "体育老师1", "操场1区", "北校区", "else", 1));
+        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2018", 1, "高一(4)班", "语文", "语文老师2", "教学楼104", "北校区", "major", 3));
+        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2018", 1, "高一(4)班", "数学", "数学老师2", "教学楼104", "北校区", "major", 4));
+        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2018", 1, "高一(4)班", "英语", "英语老师2", "教学楼104", "北校区", "major", 4));
+        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2018", 1, "高一(4)班", "体育", "体育老师2", "操场2区", "北校区", "else", 2));
+        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2018", 1, "高一(4)班", "信息", "信息老师2", "机房2", "北校区", "else", 2));
         courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2018", 1, "高一(4)班", "劳技", "劳技老师1", "教学楼104", "北校区", "else", 1));
-        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2018", 1, "高一(4)班", "自习", "自习老师4", "教学楼104", "北校区", "else", 1));
 
         //高二 1班
-        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2017", 1, "高二(1)班", "语文", "语文老师3", "教学楼105", "北校区", "major", 5));
-        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2017", 1, "高二(1)班", "数学", "数学老师3", "教学楼105", "北校区", "major", 6));
-        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2017", 1, "高二(1)班", "英语", "英语老师3", "教学楼105", "北校区", "major", 5));
-        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2017", 1, "高二(1)班", "体育", "体育老师1", "操场1区", "北校区", "else", 1));
-        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2017", 1, "高二(1)班", "劳技", "劳技老师1", "教学楼105", "北校区", "else", 1));
-        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2017", 1, "高二(1)班", "自习", "自习老师5", "教学楼105", "北校区", "else", 1));
+        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2017", 1, "高二(1)班", "语文", "语文老师3", "教学楼105", "北校区", "major", 3));
+        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2017", 1, "高二(1)班", "数学", "数学老师3", "教学楼105", "北校区", "major", 4));
+        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2017", 1, "高二(1)班", "英语", "英语老师3", "教学楼105", "北校区", "major", 4));
+        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2017", 1, "高二(1)班", "体育", "体育老师2", "操场2区", "北校区", "else", 2));
+        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2017", 1, "高二(1)班", "信息", "信息老师2", "机房2", "北校区", "else", 2));
+        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2017", 1, "高二(1)班", "劳技", "劳技老师2", "教学楼105", "北校区", "else", 1));
 
         //高二 2班
-        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2017", 1, "高二(2)班", "语文", "语文老师3", "教学楼106", "北校区", "major", 5));
-        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2017", 1, "高二(2)班", "数学", "数学老师3", "教学楼106", "北校区", "major", 6));
-        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2017", 1, "高二(2)班", "英语", "英语老师3", "教学楼106", "北校区", "major", 5));
-        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2017", 1, "高二(2)班", "体育", "体育老师1", "操场1区", "北校区", "else", 1));
-        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2017", 1, "高二(2)班", "劳技", "劳技老师1", "教学楼106", "北校区", "else", 1));
-        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2017", 1, "高二(2)班", "自习", "自习老师6", "教学楼106", "北校区", "else", 1));
+        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2017", 1, "高二(2)班", "语文", "语文老师3", "教学楼106", "北校区", "major", 3));
+        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2017", 1, "高二(2)班", "数学", "数学老师3", "教学楼106", "北校区", "major", 4));
+        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2017", 1, "高二(2)班", "英语", "英语老师3", "教学楼106", "北校区", "major", 4));
+        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2017", 1, "高二(2)班", "体育", "体育老师2", "操场2区", "北校区", "else", 2));
+        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2017", 1, "高二(2)班", "信息", "信息老师2", "机房2", "北校区", "else", 2));
+        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2017", 1, "高二(2)班", "劳技", "劳技老师2", "教学楼106", "北校区", "else", 1));
 
         //高二 3班
-        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2017", 1, "高二(3)班", "语文", "语文老师4", "教学楼107", "北校区", "major", 5));
-        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2017", 1, "高二(3)班", "数学", "数学老师4", "教学楼107", "北校区", "major", 6));
-        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2017", 1, "高二(3)班", "英语", "英语老师4", "教学楼107", "北校区", "major", 5));
-        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2017", 1, "高二(3)班", "体育", "体育老师1", "操场1区", "北校区", "else", 1));
-        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2017", 1, "高二(3)班", "劳技", "劳技老师1", "教学楼107", "北校区", "else", 1));
-        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2017", 1, "高二(3)班", "自习", "自习老师7", "教学楼107", "北校区", "else", 1));
+        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2017", 1, "高二(3)班", "语文", "语文老师4", "教学楼107", "北校区", "major", 3));
+        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2017", 1, "高二(3)班", "数学", "数学老师4", "教学楼107", "北校区", "major", 4));
+        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2017", 1, "高二(3)班", "英语", "英语老师4", "教学楼107", "北校区", "major", 4));
+        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2017", 1, "高二(3)班", "体育", "体育老师3", "操场3区", "北校区", "else", 2));
+        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2017", 1, "高二(3)班", "信息", "信息老师3", "机房3", "北校区", "else", 2));
+        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2017", 1, "高二(3)班", "劳技", "劳技老师2", "教学楼107", "北校区", "else", 1));
 
         //高二 4班
-        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2017", 1, "高二(4)班", "语文", "语文老师4", "教学楼108", "北校区", "major", 5));
-        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2017", 1, "高二(4)班", "数学", "数学老师4", "教学楼108", "北校区", "major", 6));
-        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2017", 1, "高二(4)班", "英语", "英语老师4", "教学楼108", "北校区", "major", 5));
-        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2017", 1, "高二(4)班", "体育", "体育老师1", "操场1区", "北校区", "else", 1));
-        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2017", 1, "高二(4)班", "劳技", "劳技老师1", "教学楼108", "北校区", "else", 1));
-        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2017", 1, "高二(4)班", "自习", "自习老师8", "教学楼108", "北校区", "else", 1));
+        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2017", 1, "高二(4)班", "语文", "语文老师4", "教学楼108", "北校区", "major", 3));
+        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2017", 1, "高二(4)班", "数学", "数学老师4", "教学楼108", "北校区", "major", 4));
+        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2017", 1, "高二(4)班", "英语", "英语老师4", "教学楼108", "北校区", "major", 4));
+        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2017", 1, "高二(4)班", "体育", "体育老师3", "操场3区", "北校区", "else", 2));
+        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2017", 1, "高二(4)班", "信息", "信息老师3", "机房3", "北校区", "else", 2));
+        courseInfoList.add(new AutoCourseInfo(StringUtils.generateID(), "2017", 1, "高二(4)班", "劳技", "劳技老师2", "教学楼108", "北校区", "else", 1));
 
         return courseInfoList;
     }
